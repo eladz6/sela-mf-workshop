@@ -1,0 +1,3 @@
+# SPA Composition
+
+single-spa
