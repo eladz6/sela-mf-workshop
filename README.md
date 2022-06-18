@@ -9,3 +9,9 @@ Structure:
 - **solutions**: Contains solution proposals for the different exercises.
 
 Make sure to run `npm i` in each folder containing a *package.json*.
+
+Some demos / examples / solutions have a *run-all.sh* file. This works in WSL, Linux, and MacOS. Running the script via `./run-all.sh` will actually install and run everything necessary for the respective demo / example / solution.
+
+## License
+
+All sample code is released using the MIT license. For more information see the [license file](./LICENSE).

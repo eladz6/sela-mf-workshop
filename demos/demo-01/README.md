@@ -1,3 +1,3 @@
 # Server-Side Composition
 
-Using podium
+Creates a server-side composition of the Tractor store using podium.

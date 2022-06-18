@@ -6,3 +6,10 @@ Questions:
 
 * How can the new MF be integrated?
 * How is the MF being debugged?
+
+Hints:
+
+* Use the `purple` directory as a starting point.
+* Extend the `src/product-reviews.js` to have the desired functionality.
+* Run the new MF by calling `npm start` in the `purple` directory (don't forget to `npm install` first).
+* Run the original demo from the `demos/demo-02` folder via `run-all.sh`.
