@@ -124,3 +124,9 @@ Also the CSS has been enhanced to include the `reviews` area:
 ```
 
 The podlet can be debugged by attaching a Node.js debugger to it. Running it, e.g., with `--inspect` will rely the port - we can then access it in a Chrome browser to set breakpoints etc.
+
+For instance running:
+
+```sh
+node --inspect index.js
+```
