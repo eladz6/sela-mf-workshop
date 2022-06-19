@@ -17,27 +17,40 @@ Some demos / examples / solutions have a *run-all.sh* file. This works in WSL, L
 ### Day 1
 
 9:00-10:15
+
 * Introduction to Micro Frontends
 * Scalability Considerations
 * Domain Decomposition
 * Web Approach
+
 10:15-11:00
+
 * Exercise
+
 11:00-12:00
+
 * Solution Discussion
 * Server-Side Composition
 * Technical vs Functional Modules
 * UX Scaling
+
 12:00-12:45
+
 * Exercise
+
 13:45-14:45
+
 * Solution Discussion
 * App Shell Model
 * Client-Side Composition
 * Web Components
+
 14:45-15:30
+
 * Exercise
+
 15:30-16:00
+
 * Solution Discussion
 * Recap & Outlook
 
