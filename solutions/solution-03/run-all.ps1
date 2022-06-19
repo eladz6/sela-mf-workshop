@@ -2,11 +2,11 @@
 
 $WD = (pwd).Path
 $APP = 'app'
-$BLUE_PODLET = '../../demos/demo-01/blue-podlet'
-$RED_PODLET = 'red'
-$GREEN_PODLET = '../../demos/demo-01/green-podlet'
-$PURPLE_PODLET = 'purple-podlet'
-$MFs = @($APP,$BLUE_PODLET,$GREEN_PODLET,$RED_PODLET,$PURPLE_PODLET)
+$BLUE = '../../demos/demo-02/blue'
+$RED = 'red'
+$GREEN = '../../demos/demo-02/green'
+$PURPLE = 'purple'
+$MFs = @($APP,$BLUE,$GREEN,$RED,$PURPLE)
 
 foreach ( $MF in $MFs )
 {
@@ -15,4 +15,4 @@ foreach ( $MF in $MFs )
   cd ..
 }
 
-npx concurrently "npm --prefix $APP run start" "npm --prefix $BLUE_PODLET run start" "npm --prefix $RED_PODLET run start" "npm --prefix $GREEN_PODLET run start" "npm --prefix $PURPLE_PODLET run start"
+npx concurrently "npm --prefix $APP run start" "npm --prefix $BLUE run start" "npm --prefix $RED run start" "npm --prefix $GREEN run start" "npm --prefix $PURPLE run start"

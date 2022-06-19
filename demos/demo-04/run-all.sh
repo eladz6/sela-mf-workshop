@@ -9,4 +9,4 @@ do
   cd ..
 done
 
-(trap 'kill 0' SIGINT; (cd app && npm start) & (cd blue && npm start) & (cd green && npm start) & (cd red && npm start))
+npx concurrently "npm --prefix app run start" "npm --prefix blue run start" "npm --prefix red run start" "npm --prefix green run start"
