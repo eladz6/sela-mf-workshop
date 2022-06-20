@@ -1,6 +1,5 @@
 import "./style/buy-button.css";
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 
 const defaultPrice = "0,00 €";
 const prices = {
@@ -25,8 +24,3 @@ const BuyButton = ({ sku = "porsche" }) => {
 };
 
 export default BuyButton;
-
-export function renderBuyButton(container) {
-  const root = createRoot(container);
-  root.render(<BuyButton />);
-}

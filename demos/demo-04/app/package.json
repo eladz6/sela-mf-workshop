@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "single-spa": "^5.9.4"
+  },
   "devDependencies": {
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.3.1",

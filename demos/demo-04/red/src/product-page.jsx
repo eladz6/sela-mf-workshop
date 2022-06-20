@@ -1,6 +1,6 @@
 import "./style/product-page.css";
 import * as React from "react";
-import { createRoot } from "react-dom/client";
+import Parcel from "single-spa-react/parcel";
 import tractorRed from "./images/tractor-red.jpg";
 import tractorBlue from "./images/tractor-blue.jpg";
 import tractorGreen from "./images/tractor-green.jpg";
@@ -38,10 +38,20 @@ const product = {
   ],
 };
 
-const BasketInfo = React.lazy(() => import("blue/basketInfo"));
-const BuyButton = React.lazy(() => import("blue/buyButton"));
+const BasketInfo = React.lazy(() =>
+  System.import("blue").then(({ BasketInfo }) => ({
+    default: (props) => <Parcel config={BasketInfo} {...props} />,
+  }))
+);
+const BuyButton = React.lazy(() =>
+  System.import("blue").then(({ BuyButton }) => ({
+    default: (props) => <Parcel config={BuyButton} {...props} />,
+  }))
+);
 const ProductRecommendations = React.lazy(() =>
-  import("green/recommendations")
+  System.import("green").then(({ ProductRecommendations }) => ({
+    default: (props) => <Parcel config={ProductRecommendations} {...props} key={props.sku} />,
+  }))
 );
 
 function getCurrent(sku) {
@@ -89,8 +99,3 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
-
-export function renderProductPage(container) {
-  const root = createRoot(container);
-  root.render(<ProductPage />);
-}

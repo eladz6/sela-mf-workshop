@@ -1,13 +1,14 @@
-const { ModuleFederationPlugin } = require("webpack").container;
+const { resolve } = require('path');
 
 module.exports = {
   entry: {
-    "product-recommendations": "./src/product-recommendations.jsx",
+    "green": ["systemjs-webpack-interop/auto-public-path", "./src/index.js"],
   },
   output: {
+    libraryTarget: "system",
     filename: "[name].js",
     path: __dirname + "/dist",
-    publicPath: "auto",
+    publicPath: "",
   },
   mode: "development",
   devtool: "source-map",
@@ -19,15 +20,31 @@ module.exports = {
         "X-Requested-With, content-type, Authorization",
     },
   },
+  resolve: {
+    // see below for an explanation
+    alias: {
+      svelte: resolve('node_modules', 'svelte')
+    },
+    extensions: ['.js', '.mjs', '.svelte', '.json'],
+    mainFields: ['svelte', 'browser', 'module', 'main'],
+  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         loader: "babel-loader",
         exclude: /node_modules/,
-        options: {
-          presets: ["@babel/preset-react"],
-        },
+      },
+      {
+        test: /\.(html|svelte)$/,
+        use: 'svelte-loader'
+      },
+      {
+        // required to prevent errors from Svelte on Webpack 5+, omit on Webpack 4
+        test: /node_modules\/svelte\/.*\.mjs$/,
+        resolve: {
+          fullySpecified: false
+        }
       },
       {
         test: /\.(png|svg|jpg|gif)$/i,
@@ -39,22 +56,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new ModuleFederationPlugin({
-      name: "green",
-      filename: "index.js",
-      exposes: {
-        "./recommendations": "./src/product-recommendations.jsx",
-      },
-      remotes: {},
-      shared: {
-        react: {
-          singleton: true,
-        },
-        "react-dom/client": {
-          singleton: true,
-        },
-      },
-    }),
-  ],
+  plugins: [],
 };

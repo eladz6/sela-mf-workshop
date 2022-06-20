@@ -1,6 +1,5 @@
 import "./style/basket-info.css";
 import * as React from "react";
-import { createRoot } from "react-dom/client";
 
 const BasketInfo = ({ sku = "porsche" }) => {
   const [items, setItems] = React.useState([]);
@@ -20,8 +19,3 @@ const BasketInfo = ({ sku = "porsche" }) => {
 };
 
 export default BasketInfo;
-
-export function renderBasketInfo(container) {
-  const root = createRoot(container);
-  root.render(<BasketInfo />);
-}

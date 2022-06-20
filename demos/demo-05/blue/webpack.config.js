@@ -1,12 +1,14 @@
+const { ModuleFederationPlugin } = require("webpack").container;
+
 module.exports = {
   entry: {
-    "blue": ["systemjs-webpack-interop/auto-public-path", "./src/index.js"],
+    "basket-info": "./src/basket-info.jsx",
+    "buy-button": "./src/buy-button.jsx",
   },
   output: {
-    libraryTarget: "system",
     filename: "[name].js",
     path: __dirname + "/dist",
-    publicPath: "",
+    publicPath: "auto",
   },
   mode: "development",
   devtool: "source-map",
@@ -17,9 +19,6 @@ module.exports = {
       "Access-Control-Allow-Headers":
         "X-Requested-With, content-type, Authorization",
     },
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json'],
   },
   module: {
     rules: [
@@ -44,5 +43,23 @@ module.exports = {
       },
     ],
   },
-  plugins: [],
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "blue",
+      filename: "index.js",
+      exposes: {
+        "./basketInfo": "./src/basket-info.jsx",
+        "./buyButton": "./src/buy-button.jsx",
+      },
+      remotes: {},
+      shared: {
+        react: {
+          singleton: true,
+        },
+        "react-dom/client": {
+          singleton: true,
+        },
+      },
+    }),
+  ],
 };

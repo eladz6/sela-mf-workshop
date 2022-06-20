@@ -1,13 +1,12 @@
-const { ModuleFederationPlugin } = require("webpack").container;
-
 module.exports = {
   entry: {
-    "product-page": "./src/product-page.jsx",
+    "red": ["systemjs-webpack-interop/auto-public-path", "./src/index.js"],
   },
   output: {
+    libraryTarget: "system",
     filename: "[name].js",
     path: __dirname + "/dist",
-    publicPath: "auto",
+    publicPath: "",
   },
   mode: "development",
   devtool: "source-map",
@@ -18,6 +17,9 @@ module.exports = {
       "Access-Control-Allow-Headers":
         "X-Requested-With, content-type, Authorization",
     },
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
   },
   module: {
     rules: [
@@ -39,25 +41,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new ModuleFederationPlugin({
-      name: "red",
-      filename: "index.js",
-      exposes: {
-        "./productPage": "./src/product-page.jsx",
-      },
-      remotes: {
-        green: "green@http://localhost:2003/index.js",
-        blue: "blue@http://localhost:2002/index.js",
-      },
-      shared: {
-        react: {
-          singleton: true,
-        },
-        "react-dom/client": {
-          singleton: true,
-        },
-      },
-    }),
-  ],
+  plugins: [],
 };

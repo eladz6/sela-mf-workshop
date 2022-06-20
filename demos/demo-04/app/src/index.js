@@ -1,9 +1,12 @@
-import './style.css';
+import "./style.css";
+import { registerApplication, start } from "single-spa";
 
-import('red/productPage').then(({ renderProductPage}) => {
-    const root = document.body.appendChild(document.createElement('div'));
-    root.id = 'app';
-    
-    renderProductPage(root);
-});
+// Simple usage
+registerApplication(
+  "red",
+  () => System.import("red"),
+  (location) => location.pathname.startsWith("/"),
+  {}
+);
 
+start();

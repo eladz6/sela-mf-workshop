@@ -1,3 +1,4 @@
+const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -33,6 +34,13 @@ module.exports = {
     ],
   },
   plugins: [
+    new ModuleFederationPlugin({
+      name: "app",
+      shared: {},
+      remotes: {
+        red: "red@http://localhost:2001/index.js",
+      },
+    }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

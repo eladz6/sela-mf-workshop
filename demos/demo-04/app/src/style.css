@@ -24,7 +24,7 @@ dd {
   margin: 0;
 }
 
-#app {
+body > div {
   display: grid;
   grid-column-gap: 20px;
   grid-gap: 20px;
@@ -33,13 +33,13 @@ dd {
   min-width: 500px;
 }
 
-#app {
+body > div {
   outline: 3px dashed orangered;
   padding: 15px;
 }
 
 @media only screen and (max-width: 999px) {
-  #app {
+  body > div {
     grid-template-areas:
       "store basket"
       "image name"
@@ -51,7 +51,7 @@ dd {
 }
 
 @media only screen and (min-width: 1000px) {
-  #app {
+  body > div {
     grid-template-areas:
       "store basket  reco"
       "image name    reco"
