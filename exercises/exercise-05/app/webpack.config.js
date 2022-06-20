@@ -21,6 +21,9 @@ module.exports = {
         "X-Requested-With, content-type, Authorization",
     },
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+  },
   module: {
     rules: [
         {
