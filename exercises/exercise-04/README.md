@@ -1,4 +1,4 @@
-# Exercise 5
+# Exercise 4
 
 Write another MF for the webshop using single-spa. The MF should show reviews related to the currently selected product.
 
