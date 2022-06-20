@@ -6,6 +6,7 @@ Include the consent dialog MF from the "consent" directory in the application.
 
 -> Container is `consent` at script `consent/index.js`
 -> Exposes `./dialog`
+-> Exports function `showDialog`
 
 Questions:
 

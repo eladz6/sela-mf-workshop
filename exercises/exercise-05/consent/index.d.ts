@@ -1,1 +1,1 @@
-export declare function showDialog(): void;
+export declare function showDialog(): () => void;
